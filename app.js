@@ -12,6 +12,7 @@ require('dotenv').config();
 const user = require("./routes/User");
 const admin = require("./routes/Admin");
 const serviceProvider = require("./routes/ServiceProvider");
+const paymentRouter = require('./routes/chapa')
 
 const { serviceProviderAuth } = require("./auth/ServiceProvidersAuth");
 const { adminAuth } = require("./auth/AdminAuth");
@@ -530,6 +531,9 @@ app.post("/setWebhookClientRequests", async (req, res) => {
 	}
 });
 
+//================== CHAPA PAYMENT ======================
+
+app.use("/payment", paymentRouter)
 
 /***************SERVER STARTUP***************/
 

@@ -210,4 +210,41 @@ AppointmentSchema.pre('save', async function(next){
 })
 const Appointment = mongoose.model("Appointment", AppointmentSchema)
 
-module.exports = {Student, ServiceProvider, Admin, Request, Appointment}
+// Payment
+const PaymentSchema = new mongoose.Schema({
+	first_name: String,
+	last_name: String,
+	email: String,
+	currency: { 
+		type: String,
+		enum: ["ETB", "USD"]
+	},
+	amount: { 
+		type: Number
+	},
+	charge: {
+		type: Number,
+	},
+	status: {
+		type: String,
+		enum: ["success", "pending", "failed"]
+	}, 
+	reference: {
+		type: String
+	},
+	created_at: {
+		type: String
+	}, 
+	type: String,
+	tx_ref: String,
+	payment_method: String,
+	customization: {
+		title: String,
+		description: String,
+	}
+
+})
+
+const Payment = mongoose.model("Payment", PaymentSchema)
+
+module.exports = {Student, ServiceProvider, Admin, Request, Appointment, Payment}
