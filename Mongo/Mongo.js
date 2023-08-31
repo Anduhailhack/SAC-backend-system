@@ -75,12 +75,12 @@ MongoDb.prototype.addStudent = async function (
 
 MongoDb.prototype.addServiceProvider = async function (
 	provider_id, f_name, l_name, email, phone_no, 
-	telegram_id, educational_bkg, sp_team, work_exp, 
+	telegram_id, educational_bkg, sp_team, speciality,
 	office_location, available_at, callback
 ) {
 	await ServiceProvider.create({
 		provider_id, f_name, l_name, email, phone_no, 
-		telegram_id, educational_bkg, sp_team, work_exp, 
+		telegram_id, educational_bkg, sp_team, speciality,
 		office_location, available_at
 	})
 		.then((data) => {
