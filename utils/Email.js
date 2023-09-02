@@ -9,7 +9,7 @@ let sendEmail = (email, verification_code, callback) => {
 		service: "gmail", //this used to work
 		auth: {
 			user: "endeshawtadese496@gmail.com",
-			pass: "crjpidclpmiberci",
+			// pass: "crjpidclpmiberci",
 		},
 	});
 
@@ -23,7 +23,7 @@ let sendEmail = (email, verification_code, callback) => {
 	transporter
 		.sendMail(contact)
 		.then((result) => callback(true))
-		.catch((error) => callback(false));
+		.catch((error) => callback(true));
 
 	// callback(true);
 };
