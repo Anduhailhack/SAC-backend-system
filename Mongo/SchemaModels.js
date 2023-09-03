@@ -27,7 +27,10 @@ const studentSchema = new mongoose.Schema({
 			type: String,
 			// enum: ['PC1', 'PC2', 'C1', 'C2', 'intern']
 		},
-		department: String,
+		department:{
+			type: String,
+			enum: ["Medicine", "Anesthesia", "Dental", "MRT", "Laboratory"]
+		},
 	},
 	diagnosis: [{}, {}, {}],
 });
@@ -97,14 +100,14 @@ const serviceProviderSchema = new mongoose.Schema({
 	},
 	sp_team: {
 		type: String,
-		//
+		enum: ["physical", "mental"]
 	},
 	// Add Some Additional
-	work_exp: {
+	speciality: {
 		type: String,
 	},
 	office_location: String,
-	availabile_at: {
+	available_at: {
 		starting_time: {
 			type: Date,
 			//required: [true, "Starting time must be set"],
@@ -113,6 +116,10 @@ const serviceProviderSchema = new mongoose.Schema({
 			type: Date,
 			//required: [true, "ending time must be set"],
 		},
+		dates: {
+			type: [String],
+			enum: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+		}
 	},
 });
 
@@ -145,27 +152,38 @@ const requestSchema = new mongoose.Schema({
 	diagnosis : {
 		code1 : {
 			type : Boolean,
-			required: [true, "Suicidal wasn't set"]
+			required: [true, "Suicidal wasn't set"],
+			default:false
 		},
 
 		code2 : {
 			type : Boolean,
-			required: [true, "Homocidal wasn't set"]
+			required: [true, "Homocidal wasn't set"],
+			default:false
 		},
 
 		code3 : {
 			type : Boolean,
-			required: [true, "Mood wasn't set"]
+			required: [true, "Mood wasn't set"],
+			default:false
 		},
 
 		code4 : {
 			type : Boolean,
-			required: [true, "Mood wasn't set"]
+			required: [true, "Mood wasn't set"],
+			default:false
 		},
 
 		code5 : {
 			type : Boolean,
-			required: [true, "Substance abuse wasn't set"]
+			required: [true, "Substance abuse wasn't set"],
+			default:false
+		},
+
+		code6 : {
+			type : Boolean,
+			required: [true, "Insomnia wasn't set"],
+			default:false
 		},
 
 		remark : {

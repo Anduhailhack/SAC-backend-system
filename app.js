@@ -403,7 +403,7 @@ app.post("/service-provider/signup", (req, res) => {
 	try {
 		const {
 			provider_id, f_name, l_name, email, phone_no, 
-			telegram_id, educational_bkg, sp_team, work_exp, 
+			telegram_id, educational_bkg, sp_team, speciality,
 			office_location, available_at
 		} = req.body;
 
@@ -417,7 +417,7 @@ app.post("/service-provider/signup", (req, res) => {
 		
 		db.addServiceProvider(
 			provider_id, f_name, l_name, email, phone_no, 
-			telegram_id, educational_bkg, sp_team, work_exp, 
+			telegram_id, educational_bkg, sp_team, speciality,
 			office_location, available_at,
 			(result) => {
 				if (result.status) {
