@@ -34,7 +34,7 @@ router.post("/addRequest", (req, res) => {
 						if (result && result.result && result.result.length && result.result.length >= 0)
 						{
 							db.getStudent(stud_id, stud_info => {
-								axios.post( /*process.env.BASE_WEB_API*/ "http://127.0.0.1:3000" + "/hook/notify", {
+								axios.post( /*process.env.BASE_WEB_API*/ "http://127.0.0.1:3000" + "/sp/notify_student_request", {
 									msg : "New student sent request.",
 									telegram_id : result.result,
 									stud_info : stud_info,

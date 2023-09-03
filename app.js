@@ -189,6 +189,8 @@ app.post("/user/verify", (req, res) => {
 					result: {
 						msg: "Authenticated successfully.",
 						token: token,
+						expiration : process.env.JWT_EXPIRATION,
+						role : process.env.USER_ROLE
 					},
 				});
 			}
@@ -507,6 +509,8 @@ app.post("/service-provider/verify", (req, res) => {
 					result: {
 						msg: "Authenticated successfully.",
 						token: token,
+						expiration : process.env.JWT_EXPIRATION,
+						role : process.env.SP_ROLE
 					},
 				});
 			}
